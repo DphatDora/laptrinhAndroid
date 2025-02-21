@@ -1,17 +1,22 @@
 package com.example.baitap1;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -27,7 +32,14 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         EdgeToEdge.enable(this);
+
         setContentView(R.layout.activity_main);
+
+        //set background khi load app
+        ConstraintLayout bg= (ConstraintLayout) findViewById(R.id.main);
+        bg.setBackgroundColor(Color.CYAN);
+        //bg.setBackgroundResource(R.drawable.bg_image);
+
 
         // tao mang
         Button btn_array = findViewById(R.id.arrayBtn);
@@ -64,6 +76,19 @@ public class MainActivity extends AppCompatActivity {
                 String outputText = nghichDaoChuoi(inputText);
                 textView.setText(outputText);
                 Toast.makeText(MainActivity.this, "Chuỗi đảo: " + outputText, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //change background khi click switch
+        Switch sw = (Switch) findViewById(R.id.switch_bg);
+        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    bg.setBackgroundResource(R.drawable.bg_image);
+                }else{
+                    bg.setBackgroundColor(Color.CYAN);
+                }
             }
         });
     }
