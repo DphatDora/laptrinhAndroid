@@ -18,13 +18,15 @@ public class GridViewActivity extends AppCompatActivity {
     GridView gridview;
     ArrayList<MonHoc> arrayList;
     MonhocAdapter adapter;
-
+    EditText editText;
+    Button btnNhap;
+    Button btnCapNhat;
     int vitri = -1;
     private void AnhXa() {
         gridview = findViewById(R.id.gridview);
-        EditText editText =  findViewById(R.id.editText);
-        Button btnNhap =  findViewById(R.id.btnNhap);
-        //btnCapNhat =  findViewById(R.id.btnCapNhat);
+        editText =  findViewById(R.id.editText);
+        btnNhap =  findViewById(R.id.btnNhap);
+        btnCapNhat =  findViewById(R.id.btnCapNhap);
         //Thêm dữ liệu vào List
         arrayList = new ArrayList<>();
         arrayList.add(new MonHoc("Java","Java 1",R.drawable.java1));
@@ -53,10 +55,6 @@ public class GridViewActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        EditText editText =  findViewById(R.id.editText);
-        Button btnNhap =  findViewById(R.id.btnNhap);
-        Button btnCapNhat =  findViewById(R.id.btnCapNhap);
 
         btnNhap.setOnClickListener(view -> {
             String name = editText.getText().toString();

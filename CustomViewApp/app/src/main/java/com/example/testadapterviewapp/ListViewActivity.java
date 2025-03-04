@@ -19,12 +19,17 @@ public class ListViewActivity extends AppCompatActivity {
     ArrayList<MonHoc> arrayList;
     MonhocAdapter adapter;
 
+    EditText editText;
+    Button btnNhap;
+    Button btnCapNhat;
+
     int vitri = -1;
     private void AnhXa() {
         listView = findViewById(R.id.listview1);
-        EditText editText =  findViewById(R.id.editText);
-        Button btnNhap =  findViewById(R.id.btnNhap);
-        //btnCapNhat =  findViewById(R.id.btnCapNhat);
+        editText =  findViewById(R.id.editText);
+        btnNhap =  findViewById(R.id.btnNhap);
+        btnCapNhat =  findViewById(R.id.btnCapNhap);
+
         //Thêm dữ liệu vào List
         arrayList = new ArrayList<>();
         arrayList.add(new MonHoc("Java","Java 1",R.drawable.java1));
@@ -39,6 +44,7 @@ public class ListViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.custom_list_view);
+
         //anh xa
         AnhXa();
 
@@ -53,10 +59,6 @@ public class ListViewActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        EditText editText =  findViewById(R.id.editText);
-        Button btnNhap =  findViewById(R.id.btnNhap);
-        Button btnCapNhat =  findViewById(R.id.btnCapNhap);
 
         btnNhap.setOnClickListener(view -> {
             String name = editText.getText().toString();

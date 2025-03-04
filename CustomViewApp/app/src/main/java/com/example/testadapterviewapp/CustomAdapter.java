@@ -20,7 +20,6 @@ public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private Context mContext;
     private List<Object> mObjects;
-
     public static final int TEXT = 0;
     public static final int IMAGE = 1;
     public static final int USER = 2;
@@ -35,12 +34,12 @@ public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         private TextView tvText;
         public TextViewHolder(View itemView) {
             super(itemView);
-            tvText = (TextView) itemView.findViewById(R.id.tv_text);
+            tvText = itemView.findViewById(R.id.tv_text);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view){
-                    Toast.makeText(mContext, mObjects.get(getAdapterPosition()).toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, mObjects.get(getAbsoluteAdapterPosition()).toString(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -55,7 +54,7 @@ public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             itemView.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View view){
-                    Toast.makeText(mContext, mObjects.get(getAdapterPosition()).toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, mObjects.get(getAbsoluteAdapterPosition()).toString(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -68,20 +67,21 @@ public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = (TextView) itemView.findViewById(R.id.tv_name);
-            tvAddress = (TextView) itemView.findViewById(R.id.tv_address);
+            tvName = itemView.findViewById(R.id.tv_name);
+            tvAddress = itemView.findViewById(R.id.tv_address);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
-                    UserModel user = (UserModel) mObjects.get(getAdapterPosition());
+                    UserModel user = (UserModel) mObjects.get(getAbsoluteAdapterPosition());
                     Toast.makeText(mContext, user.getName() + ", " + user.getAddress() + ", ", Toast.LENGTH_SHORT).show();
                 }
             });
         }
     }
 
+    //tạo viewHolder tương ứng
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater li = LayoutInflater.from(mContext);
@@ -102,6 +102,7 @@ public class CustomAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return null;
     }
 
+    //gán dữ liệu viewHolder tương ứng
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         switch (getItemViewType(position)){

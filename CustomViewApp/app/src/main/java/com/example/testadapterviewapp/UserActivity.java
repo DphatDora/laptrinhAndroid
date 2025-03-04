@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserActivity extends AppCompatActivity {
-    //private static final String TAG = "MainActivity";
     private RecyclerView rvMultipleViewType;
     private List<Object> mData;
 
@@ -23,7 +22,7 @@ public class UserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user);
 
 
-        rvMultipleViewType = (RecyclerView) findViewById(R.id.rv_multipe_view_type);
+        rvMultipleViewType = findViewById(R.id.rv_multipe_view_type);
         mData = new ArrayList<>();
         mData.add(new UserModel("Ha Duc Phat", "Phu Yen"));
         mData.add(R.drawable.java1);

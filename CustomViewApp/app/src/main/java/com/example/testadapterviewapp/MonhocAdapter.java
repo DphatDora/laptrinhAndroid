@@ -34,12 +34,12 @@ public class MonhocAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return monhocList.get(i);
     }
 
     @Override
     public long getItemId(int i) {
-        return 0;
+        return i;
     }
 
     @Override
@@ -47,6 +47,7 @@ public class MonhocAdapter extends BaseAdapter {
 
         //khởi tạo viewholder
         ViewHolder viewHolder;
+
         //lấy context
         if (view==null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -54,9 +55,10 @@ public class MonhocAdapter extends BaseAdapter {
             view = inflater.inflate(layout,null);
             //ánh xạ view
             viewHolder = new ViewHolder();
-            viewHolder.textName = (TextView) view.findViewById(R.id.textName);
-            viewHolder.textDesc = (TextView)  view.findViewById(R.id.textDesc);
-            viewHolder.imagePic = (ImageView) view.findViewById(R.id.imagePic);
+            viewHolder.textName = view.findViewById(R.id.textName);
+            viewHolder.textDesc = view.findViewById(R.id.textDesc);
+            viewHolder.imagePic = view.findViewById(R.id.imagePic);
+
             view.setTag(viewHolder);
         }else{
             viewHolder= (ViewHolder) view.getTag();
@@ -66,6 +68,7 @@ public class MonhocAdapter extends BaseAdapter {
         viewHolder.textName.setText(monHoc.getName());
         viewHolder.textDesc.setText(monHoc.getDesc());
         viewHolder.imagePic.setImageResource(monHoc.getPic());
+
         //trả về view
         return view;
     }
