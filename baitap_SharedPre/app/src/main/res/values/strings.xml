@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">bt_sharedPreferences</string>
+
+    <string name="error_field_required">Email không được rỗng</string>
+    <string name="error_invalid_email">Email không đúng định dạng</string>
+    <string name="error_invalid_password">Mật khẩu phải dài hơn 4 ký tự</string>
+</resources>
