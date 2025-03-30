@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.bt_message_model"
+    namespace = "com.example.bt_recyclerview_indicator"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.bt_message_model"
+        applicationId = "com.example.bt_recyclerview_indicator"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -42,9 +42,4 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
-    implementation(libs.retrofit)
-    implementation(libs.gson)
-    implementation(libs.okhttp)
-    implementation("me.relex:circleindicator:2.1.6")
-    implementation("com.github.smarteist:autoimageslider:1.4.0")
 }
