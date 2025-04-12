@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thêm video mới"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="center" />
+
+    <EditText
+        android:id="@+id/videoTitleInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập tiêu đề video" />
+
+    <EditText
+        android:id="@+id/videoDescInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mô tả video" />
+
+    <Button
+        android:id="@+id/uploadBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tải lên"
+        android:layout_marginTop="12dp" />
+</LinearLayout>
